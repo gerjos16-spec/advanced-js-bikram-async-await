@@ -15,3 +15,16 @@ async function getImageAndName(pokemon) {
     return { name, img };
 }
 
+// Ejercicio 3
+async function printImageAndName(pokemon) {
+    if (!pokemon) {
+        let random = await getRandomPokemon();
+        pokemon = random.name;
+    }
+    let { name, img } = await getImageAndName(pokemon);
+    return `<section>
+    <img src="${img}" alt="${name}">
+    <h1>${name}</h1>
+</section>`;
+}
+
